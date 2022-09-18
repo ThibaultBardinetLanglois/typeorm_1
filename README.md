@@ -1,0 +1,1 @@
+You have to copy the .env.sample file in a src/config/.env file, and finally add your own environnement variable values
