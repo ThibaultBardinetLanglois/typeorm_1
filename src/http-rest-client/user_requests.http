@@ -1,0 +1,27 @@
+GET http://localhost:8000/api/users
+
+###
+GET http://localhost:8000/api/users/2
+
+###
+POST http://localhost:8000/api/users HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+    "name": "Bibi"
+}
+
+###
+PUT http://localhost:8000/api/users/6 HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+    "name": "Bibi"
+}
+
+###
+DELETE http://localhost:8000/api/users/6 HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
