@@ -15,7 +15,7 @@ Unfortunately and unexpectedly, you have to \-escape embedded " instances in a s
  Remove all \ doesn't work due to a long-standing bug
 
 ## Update user
-curl -X PUT -H "Content-Type: application/json" -d '{\"name\":\"mkyong\"}' http://localhost:8080/api/users/6
+curl -X PUT -H "Content-Type: application/json" -d '{\"name\":\"mkyong\"}' http://localhost:8000/api/users/6
 
 ## Delete a user
 curl -X DELETE http://localhost:8080/api/users/6

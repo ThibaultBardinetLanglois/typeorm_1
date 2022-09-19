@@ -1,0 +1,27 @@
+GET http://localhost:8000/api/skills
+
+###
+GET http://localhost:8000/api/skills/2
+
+###
+POST http://localhost:8000/api/skills HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+    "name": "Rust"
+}
+
+###
+PUT http://localhost:8000/api/skills/3 HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+    "name": "Golang"
+}
+
+###
+DELETE http://localhost:8000/api/skills/5 HTTP/1.1
+User-Agent: rest-client
+content-type: application/json

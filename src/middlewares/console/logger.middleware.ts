@@ -1,9 +1,8 @@
 import { Request, Response } from "express";
 import clc from "cli-color";
-import { Json } from "sequelize/dist/lib/utils";
 
 
-export default function loggerMiddleware(req: Request, res: Response, next: Function) {
+export function loggerMdw(req: Request, res: Response, next: Function) {
   const getVerbColor = (verb: string) => {
     if (verb === "GET" || verb === "POST") {
       return clc.green(verb)
@@ -24,13 +23,11 @@ export default function loggerMiddleware(req: Request, res: Response, next: Func
   console.log(clc.cyan('Http version :'), req.httpVersion);
   console.log(clc.cyan('Method :'), getVerbColor(req.method));
 
-  var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  const fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
   console.log(clc.cyan('Url :'), getVerbColor(fullUrl));
-  console.log(clc.cyan('Request params :'), JSON.stringify(req.params));
-  console.log(clc.cyan("Request body :", req.body ? JSON.stringify(req.body) : "empty"));
+  console.log(clc.cyan("Request body :", req.body && Object.keys(req.body).length > 0 ? JSON.stringify(req.body) : "empty"));
   console.log(clc.cyan("User agent :", req.headers["user-agent"]));
   
   next();
 }
-
 

@@ -1,23 +1,20 @@
 import { Request, Response } from "express";
-import { UserService } from "../../services/user.service";
-import { sayHelloEvent } from "../../subscribers/index.subscriber";
+import { SkillService } from "../../services/skill.service";
 
-
-export class UserController {
+export class SkillController {
   public static getAll = async (req: Request, res: Response) => {
     try {
-      const users = await UserService.getAll();
-      res.status(200).send (users);
+      const skills = await SkillService.getAll();
+      res.status(200).send (skills);
     } catch {
       res.status(500).send("Internal connection error")
-    } 
+    }
   }
 
   public static getById = async (req: Request, res: Response) => {
     try {
-      const user = await UserService.getById(Number(req.params.id));
-      sayHelloEvent.emit('coucou', user?.name)
-      res.status(200).send (user);
+      const skill = await SkillService.getById(Number(req.params.id));
+      res.status(200).send(skill);
     } catch {
       res.status(500).send("Internal connection error")
     }
@@ -25,8 +22,8 @@ export class UserController {
 
   public static create = async (req: Request, res: Response) => {
     try {
-      const user = await UserService.create(req.body);
-      res.status(201).send (user);
+      const skill = await SkillService.create(req.body);
+      res.status(201).send (skill);
     } catch {
       res.status(500).send("Internal connection error")
     }
@@ -34,8 +31,8 @@ export class UserController {
 
   public static update = async (req: Request, res: Response) => {
     try {
-      const user = await UserService.update(Number(req.params.id), req.body);
-      res.status(201).send(user);
+      const skill = await SkillService.update(Number(req.params.id), req.body);
+      res.status(201).send(skill);
     } catch {
       res.status(500).send("Internal connection error")
     }
@@ -43,7 +40,7 @@ export class UserController {
 
   public static delete = async (req: Request, res: Response) => {
     try {
-      await UserService.delete(Number(req.params.id));
+      await SkillService.delete(Number(req.params.id));
       res.status(204).end();
     } catch {
       res.status(500).send("Internal connection error")
