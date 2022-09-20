@@ -1,11 +1,16 @@
-import { Skill, SkillInDB } from "./skill";
+import { SkillInterface, SkillInDB, SkillSendByUser } from "./skill";
 
-export interface User {
+export interface UserInterface {
   name: string;
-  //skills: Skill[];
+  skills: SkillInterface[];
 }
 
-export interface UserInDB extends User {
+export interface UserInDB extends UserInterface {
   id: number;
-  //skills: SkillInDB[];
+}
+
+export interface createdUserInterface {
+  id: number,
+  name: string;
+  skills: SkillSendByUser[];
 }

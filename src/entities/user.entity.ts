@@ -4,10 +4,9 @@ import {
   Column, 
   PrimaryColumn,
   PrimaryGeneratedColumn,
-  OneToMany, 
+  OneToMany,
   JoinTable
 } from "typeorm";
-import Skill  from "./skill.entity";
 import { SkillToUser } from "./skillToUser.entities";
 
 
@@ -20,6 +19,7 @@ export default class User extends BaseEntity {
   @Column()
   name: string
 
-  @OneToMany(() => SkillToUser, skillToUser => skillToUser.user_id)
-  public skills!: SkillToUser[];
+  @OneToMany(() => SkillToUser, skillToUser => skillToUser.user, { eager: true })
+  //@JoinTable()
+  public skillToUser!: SkillToUser[];
 }

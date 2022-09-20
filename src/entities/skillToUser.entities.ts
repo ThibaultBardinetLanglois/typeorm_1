@@ -10,20 +10,21 @@ import User from "./user.entity";
 @Entity()
 export class SkillToUser {
     @PrimaryGeneratedColumn()
-    public skillToWilderId!: number
+    public skillToUserId!: number
 
     @Column()
-    public skill_id!: number
+    public userId!: number
 
     @Column()
-    public user_id!: number
+    public skillId!: number
 
-    @Column()
+    @Column({nullable: true})
     public vote!: number
+    
 
-    @ManyToOne(() => Skill, (skill) => skill.id)
+    @ManyToOne(() => Skill, (skill) => skill.skillToUser)
     public skill!: Skill
 
-    @ManyToOne(() => User, (user) => user.id)
+    @ManyToOne(() => User, (user) => user.skillToUser)
     public user!: User
 }

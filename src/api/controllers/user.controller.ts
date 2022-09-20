@@ -8,7 +8,7 @@ export class UserController {
     try {
       const users = await UserService.getAll();
       res.status(200).send (users);
-    } catch {
+    } catch (err) {
       res.status(500).send("Internal connection error")
     } 
   }
@@ -18,7 +18,7 @@ export class UserController {
       const user = await UserService.getById(Number(req.params.id));
       sayHelloEvent.emit('coucou', user?.name)
       res.status(200).send (user);
-    } catch {
+    } catch (err) {
       res.status(500).send("Internal connection error")
     }
   }
@@ -27,8 +27,8 @@ export class UserController {
     try {
       const user = await UserService.create(req.body);
       res.status(201).send (user);
-    } catch {
-      res.status(500).send("Internal connection error")
+    } catch (err) {
+      res.status(500).send(err.message)
     }
   }
 

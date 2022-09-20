@@ -9,7 +9,7 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-    "name": "Rust"
+    "name": "Php"
 }
 
 ###
@@ -18,7 +18,7 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-    "name": "Golang"
+    "name": "Rust"
 }
 
 ###

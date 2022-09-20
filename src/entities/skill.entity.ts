@@ -18,6 +18,6 @@ export default class Skill extends BaseEntity {
   @Column()
   name: string
 
-  @OneToMany(() => SkillToUser, skillToUser => skillToUser.skill_id)
-  public users!: SkillToUser[];
+  @OneToMany(() => SkillToUser, skillToUser => skillToUser.skill)
+  public skillToUser!: SkillToUser[];
 }

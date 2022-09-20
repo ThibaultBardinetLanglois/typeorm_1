@@ -1,7 +1,7 @@
 GET http://localhost:8000/api/users
 
 ###
-GET http://localhost:8000/api/users/2
+GET http://localhost:8000/api/users/7
 
 ###
 POST http://localhost:8000/api/users HTTP/1.1
@@ -9,11 +9,23 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-    "name": "Bibi"
+    "name": "Bobo",
+    "skills": [
+        {
+            "id": 3,
+            "name": "Java",
+            "vote": 3
+        },
+        {
+            "id": 4,
+            "name": "Php",
+            "vote": 9
+        }
+    ]
 }
 
 ###
-PUT http://localhost:8000/api/users/9 HTTP/1.1
+PUT http://localhost:8000/api/users/4 HTTP/1.1
 User-Agent: rest-client
 content-type: application/json
 
@@ -22,6 +34,6 @@ content-type: application/json
 }
 
 ###
-DELETE http://localhost:8000/api/users/5 HTTP/1.1
+DELETE http://localhost:8000/api/users/1 HTTP/1.1
 User-Agent: rest-client
 content-type: application/json

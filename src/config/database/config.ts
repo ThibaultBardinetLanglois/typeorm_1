@@ -2,6 +2,7 @@ import { DataSource } from "typeorm";
 import config  from "../index";
 import User from "../../entities/user.entity";
 import Skill from "../../entities/skill.entity";
+import { SkillToUser } from "../../entities/skillToUser.entities";
      
 const databaseConfig  = new DataSource({
   type: "mysql",
@@ -10,7 +11,7 @@ const databaseConfig  = new DataSource({
   password: config.database.password!,
   database: config.database.name!,
   logging: true,
-  entities: [User, Skill],
+  entities: [User, Skill, SkillToUser],
   subscribers: [],
   migrations: [],
   synchronize: true
