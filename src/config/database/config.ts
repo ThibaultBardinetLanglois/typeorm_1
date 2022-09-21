@@ -14,7 +14,7 @@ const databaseConfig  = new DataSource({
   entities: [User, Skill, SkillToUser],
   subscribers: [],
   migrations: [],
-  synchronize: true
+  // synchronize: true
 }) 
 
 export default databaseConfig;

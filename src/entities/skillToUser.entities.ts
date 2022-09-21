@@ -22,9 +22,9 @@ export class SkillToUser {
     public vote!: number
     
 
-    @ManyToOne(() => Skill, (skill) => skill.skillToUser)
+    @ManyToOne(() => Skill, skill => skill.skillToUser, {onDelete: "CASCADE"})
     public skill!: Skill
 
-    @ManyToOne(() => User, (user) => user.skillToUser)
+    @ManyToOne(() => User, user => user.skillToUser, {onDelete: "CASCADE"})
     public user!: User
 }

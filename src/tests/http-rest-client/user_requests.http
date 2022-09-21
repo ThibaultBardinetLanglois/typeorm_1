@@ -1,7 +1,7 @@
 GET http://localhost:8000/api/users
 
 ###
-GET http://localhost:8000/api/users/7
+GET http://localhost:8000/api/users/5
 
 ###
 POST http://localhost:8000/api/users HTTP/1.1
@@ -9,31 +9,74 @@ User-Agent: rest-client
 content-type: application/json
 
 {
-    "name": "Bobo",
+    "name": "Toto",
     "skills": [
         {
-            "id": 3,
-            "name": "Java",
-            "vote": 3
-        },
-        {
-            "id": 4,
-            "name": "Php",
-            "vote": 9
+            "id": 2,
+            "name": "Golang",
+            "vote": 2
         }
     ]
 }
 
 ###
-PUT http://localhost:8000/api/users/4 HTTP/1.1
+PUT http://localhost:8000/api/users/2 HTTP/1.1
 User-Agent: rest-client
 content-type: application/json
 
 {
-    "name": "Alfred"
+    "name": "Bébé",
+    "skills": [
+        {
+            "id": 6,
+            "name": "Java",
+            "vote": 8
+        },
+        {
+            "id": 15,
+            "name": "C++",
+            "vote": 2
+        }
+    ]
 }
 
 ###
-DELETE http://localhost:8000/api/users/1 HTTP/1.1
+DELETE http://localhost:8000/api/users/7 HTTP/1.1
 User-Agent: rest-client
 content-type: application/json
+
+
+###
+PUT http://localhost:8000/api/users/5/skills HTTP/1.1
+User-Agent: rest-client
+content-type: application/json
+
+{
+    "skills": [
+        {
+            "skillToUserId": 22,
+            "userId": 5,
+            "skillId": 2,
+            "vote": 9
+        }, 
+        {
+            "skillToUserId": 38,
+            "userId": 5,
+            "skillId": 6,
+            "vote": 8,
+            "toDelete": true
+        },
+        {
+            "skillToUserId": 39,
+            "userId": 5,
+            "skillId": 15,
+            "vote": 10,
+            "toDelete": true
+        },
+        {
+            "id": 1,
+            "name": "Elixir",
+            "vote": 10
+        }
+    ]
+}

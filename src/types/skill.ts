@@ -11,3 +11,9 @@ export interface SkillSendByUser {
   name: string,
   vote: number
 }
+
+export interface CreatedUserSkillRelation {
+  userId: number,
+  skillId: number,
+  vote: number
+}

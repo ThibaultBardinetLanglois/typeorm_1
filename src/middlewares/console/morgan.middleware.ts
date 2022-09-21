@@ -1,6 +1,6 @@
 import morgan from "morgan";
 import clc from "cli-color";
-import formatDate  from '../../utils/utils';
+import { formatMorganDate }  from '../../utils/utils';
 
 export default morgan(function (tokens, req, res) {
   const getStatusColor = (status: number) => {
@@ -25,7 +25,7 @@ export default morgan(function (tokens, req, res) {
     clc.cyan('\nResponse time'),
     tokens['response-time'](req, res), 'ms',
     clc.cyan('\nDate :'),
-    formatDate(tokens.date(req, res)),
+    formatMorganDate(tokens.date(req, res)),
     clc.cyan('\nContent-type :'),
     tokens.res(req, res, 'content-type')
   ].join(' ')

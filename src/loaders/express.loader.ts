@@ -20,6 +20,10 @@ export default async function(app: Express) {
   app.get('/status', (req: Request, res: Response) => { 
     res.status(200).send(`The server responds well on port ${config.server_port}`); 
   });
+  
+  app.listen(config.server_port, () => {
+    console.log(`The application is listening on port ${config.server_port}!`);
+  })
 }
 
 

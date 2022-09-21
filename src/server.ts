@@ -1,20 +1,15 @@
 import loaders from "./loaders";
-import config from "./config"
-import express from "express";
+import express, { Express } from "express";
 
 
 const startServer = async () => { 
 
-  const app = express();
+  const app: Express = express();
 
   await loaders(app);
-
-  app.listen(config.server_port, () => {
-    console.log(`The application is listening on port ${config.server_port}!`);
-  })
 }
 
-startServer();
+void startServer();
 
 
 
